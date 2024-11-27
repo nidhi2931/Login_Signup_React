@@ -1,11 +1,14 @@
 
 import React,{ useState } from 'react';
 import {Container,Row,Col,Form,Button} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login =()=> {
     const[emailInput,setEmailInput]=useState('');
     const[passwordInput,setPasswordInput]=useState('');
+    const[error,setError] = useState('');
+    const navigate=useNavigate();
     
 
    const handleEmailInput=(e)=>{
@@ -18,8 +21,16 @@ const Login =()=> {
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        alert(`INput Value:${emailInput} and ${passwordInput}`);
-    }
+        setError('');
+        try{
+            const response= await axios.post('')
+
+        }
+        catch(err){
+
+        }
+        
+    };
 
     return(
        
