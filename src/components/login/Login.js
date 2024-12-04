@@ -19,14 +19,34 @@ const Login =()=> {
     setPasswordInput(e.target.value);
    }
 
-    const handleSubmit=(e)=>{
+    const handleSubmit= async(e)=>{
         e.preventDefault();
         setError('');
         try{
+<<<<<<< HEAD
+            const response= await axios.post('http://127.0.0.1:8000/api/login/',{
+                email:emailInput,
+                password:passwordInput,
+
+                
+            });
+            if (response.status===200){
+                navigate('/sidemenu');
+
+            }
+            else{
+                setError('Invalid username or password');
+            }
+
+        }
+        catch(err){
+            setError(err.response?.data?.message||'Something went wrong.Please try again.');
+=======
             // const response= await axios.post('')
 
         }
         catch(err){
+>>>>>>> f066689046ad7ee6e0ff8a0914c250fbfb51e697
 
         }
         
@@ -42,7 +62,7 @@ const Login =()=> {
                         <Form.Group controlId='emailInput'>
                             <Form.Label>Email</Form.Label>
                                 <Form.Control
-                                type="email"
+                                type="text"
                                 placeholder="Enter Email"
                                 value={emailInput}
                                 onChange={handleEmailInput}
